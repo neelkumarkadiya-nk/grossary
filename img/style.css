@@ -1,0 +1,210 @@
+
+/* General Styles */
+/* General Setup */
+:root {
+    --primary-green: #5cb85c; /* Matching your "Add to Cart" buttons */
+    --admin-purple: #6c5ce7;  /* Color for Admin buttons */
+    --light-bg: #f4f7f6;
+    --white: #ffffff;
+    --error-red: #d9534f;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--light-bg);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Auth Page Layout (Sign Up / Login) */
+.auth-wrapper {
+    display: flex;
+    width: 900px;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.auth-form-side {
+    flex: 1;
+    background-color: var(--primary-green); /* Green background from your screenshot */
+    padding: 40px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-form-side h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.auth-form-side input, .auth-form-side select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box; /* Prevents overflow */
+}
+
+/* Profile & Admin Card Styling */
+.profile-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-green);
+    color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+/* Admin Dashboard Section */
+.admin-badge {
+    background: #fff3cd;
+    color: #856404;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid #ffeeba;
+}
+
+.admin-tools {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Buttons */
+.btn-main {
+    background-color: var(--admin-purple); /* Contrast for "Register" button */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: var(--error-red);
+    margin-top: 10px;
+}
+
+
+/* footer */
+/* Footer Base Styles */
+.footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #027af3;
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: #27ae60; /* Fresh Green Color */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #27ae60;
+    display: inline-block;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #d4d6d7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-col p {
+    color: #bdc3c7;
+    line-height: 1.6;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #34495e;
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #95a5a6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-col h4 {
+        margin-top: 20px;
+    }
+}

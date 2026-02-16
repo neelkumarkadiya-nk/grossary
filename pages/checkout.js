@@ -7,12 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let total = 0;
 
-    // 2. Agar cart empty hai to wapas bhejna
-    // if (cart.length === 0) {
-    //     alert("Your cart is empty!");
-    //     window.location.href = 'index.php';
-    //     return;
-    // }
+    
 
     // 3. Order Summary populate karna
     orderItemsContainer.innerHTML = cart.map(item => {

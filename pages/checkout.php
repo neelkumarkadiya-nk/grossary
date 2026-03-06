@@ -1,192 +1,245 @@
 <?php
-// session_start();
-// // include "process_register.php";
-
-// $host = "localhost";
-// $username = "root"; // Default for XAMPP
-// $password = "";     // Default for XAMPP
-// $dbname = "checkout";
-
-// $conn = new mysqli($host, $username, $password, $dbname);
-
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // 1. Get User Details from Form
-//     $name = mysqli_real_escape_string($conn, $_POST['name']);
-//     $email = mysqli_real_escape_string($conn, $_POST['email']);
-//     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-//     $address = mysqli_real_escape_string($conn, $_POST['address']);
-//     $payment = mysqli_real_escape_string($conn, $_POST['payment']);
-//     $total = $_POST['total_amount']; // Pass this from your hidden input or calculate server-side
-
-//     // 2. Insert into 'orders' table
-//     $sql_order = "INSERT INTO orders (full_name, email, phone, address, payment_method, total_amount) 
-//                   VALUES ('$name', '$email', '$phone', '$address', '$payment', '$total')";
-
-//     if ($conn->query($sql_order) === TRUE) {
-//         $order_id = $conn->insert_id; // Get the ID of the order just created
-
-//         // 3. Insert items from Session Cart into 'order_items' table
-//         if (!empty($_SESSION['cart'])) {
-//             foreach ($_SESSION['cart'] as $item) {
-//                 $p_name = $item['name'];
-//                 $p_price = $item['price'];
-//                 $p_qty = $item['quantity'];
-
-//                 $sql_items = "INSERT INTO order_items (order_id, product_name, price, quantity) 
-//                               VALUES ('$order_id', '$p_name', '$p_price', '$p_qty')";
-//                 $conn->query($sql_items);
-//             }
-//         }
-
-//         // 4. Clear Cart after successful order
-//         unset($_SESSION['cart']);
-
-//         // Return Success to Javascript
-//         echo json_encode(["status" => "success", "order_id" => $order_id]);
-//     } else {
-//         echo json_encode(["status" => "error", "message" => $conn->error]);
-//     }
-// }
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+// $username = $_SESSION['username'] ?? 'Guest';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Fresh Grocery</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .checkout-section { 
-            max-width: 900px; 
-            margin: 2rem auto; 
-            padding: 20px; 
-        }
-        .checkout-container { 
-            background: white; 
-            padding: 2rem; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-        }
-        .form-group { 
-            margin-bottom: 1.5rem;
-         }
-        .form-group input, .form-group textarea { 
-            width: 100%; 
-            padding: 12px; 
-            margin-top: 5px; 
-            border: 1px solid #ddd;
-            border-radius: 5px; 
-        }
-        .order-summary { 
-            background: #f9f9f9; 
-            padding: 20px; 
-            border-radius: 8px; 
-            margin-top: 20px; 
-            border: 1px solid #eee; 
-        }
-        .summary-item { 
-            display: flex; 
-            justify-content: space-between; 
-            margin-bottom: 10px; 
-            border-bottom: 1px solid #eee; 
-            padding-bottom: 5px; 
-        }
-
-        .total-row { 
-            font-size: 1.2rem; 
-            font-weight: bold;
-            color: #27ae60; 
-            text-align: right; 
-            margin-top: 10px; 
-        }
-        .place-order-btn { 
-            width: 100%; 
-            background: #27ae60; 
-            color: white;
-            padding: 15px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-size: 1.1rem; }
-        .modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(0,0,0,0.7); 
-            align-items: center; 
-            justify-content: center; 
-            z-index: 2000; 
-        }
-        .modal-content { 
-            background: white;
-            padding: 30px; 
-            border-radius: 10px; 
-            text-align: center; 
-        }
-        
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="checkout.css">
 </head>
+
 <body>
+
+    <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo"><h1><a href="index.php">Fresh Grocery</a></h1></div>
+        <div class="logo">
+            <h1><a href="index.php">Fresh Grocery</a></h1>
+        </div>
         <div class="cont">
+            <h3><a href="profile.php">My Profile</a></h3>
             <h3><a href="index.php">Home</a></h3>
-            <h3><a href="cart.php">Cart (<span id="cartCount">0</span>)</a></h3>
+            <h3><a href="index.php#Product">Products</a></h3>
+            <h3><a href="cart.php">Cart</a></h3>
+            <h3><a href="orders.php">Orders</a></h3>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <ion-icon name="search-outline" class="icon"></ion-icon>
+        </div>
+        <div class="cart-icon">
+            <a href="cart.php">
+                <ion-icon name="cart-outline" class="icon"></ion-icon>
+                <span id="cartCount">0</span>
+            </a>
         </div>
     </nav>
 
-    <main class="checkout-section">
-        <h2>Complete Your Order</h2>
-        <div class="checkout-container">
-            <form id="checkoutForm">
-                <div class="form-group">
-                    <h3><i class="fas fa-truck"></i> Delivery Details</h3>
-                    <input type="text" id="name" placeholder="Full Name" required>
-                    <input type="email" id="email" placeholder="Email Address" required>
-                    <input type="tel" id="phone" placeholder="Phone Number" required>
-                    <textarea id="address" placeholder="Full Delivery Address" required></textarea>
-                </div>
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Secure Checkout</h1>
+        <div class="breadcrumb">
+            <a href="index.php">Home</a>
+            <span>›</span>
+            <a href="cart.php">Cart</a>
+            <span>›</span>
+            Checkout
+        </div>
+    </div>
+    <form id="checkoutForm" action="Process_checkout.php" method="POST">
 
-                <div class="form-group">
-                    <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
-                    <input type="radio" name="payment" value="cod" placeholder=" Cash on Delivery" checked> Cash on Delivery
-                    <input type="radio" name="payment" value="online" placeholder="Online Payment"> Online Payment
-                </div>
+        <!-- CHECKOUT LAYOUT -->
+        <div class="checkout-wrapper">
 
-                <div class="order-summary">
-                    <h3>Order Summary</h3>
-                    <div id="orderItems">
+            <!-- LEFT: FORM -->
+            <div>
+                <!-- Delivery Details -->
+                <div class="checkout-card" style="margin-bottom:1.5rem;">
+                    <div class="card-header">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <h2>Delivery Details</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="fullName" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+                            </div>
                         </div>
-                    <div class="total-row">
-                        Total Amount: ₹<span id="orderTotal">0.00</span>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="email" placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Street Address</label>
+                            <input type="text" id="address" placeholder="House no., Street, Area" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" id="city" placeholder="City" required>
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <select id="state">
+                                    <option value="">Select State</option>
+                                    <option>Gujarat</option>
+                                    <option>Maharashtra</option>
+                                    <option>Delhi</option>
+                                    <option>Karnataka</option>
+                                    <option>Tamil Nadu</option>
+                                    <option>Rajasthan</option>
+                                    <option>Uttar Pradesh</option>
+                                    <option>West Bengal</option>
+                                    <option>Madhya Pradesh</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>PIN Code</label>
+                                <input type="text" id="pincode" placeholder="380001" maxlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label>Delivery Slot</label>
+                                <select id="slot">
+                                    <option value="Morning (7AM–11AM)">Morning (7AM–11AM)</option>
+                                    <option value="Afternoon (12PM–4PM)">Afternoon (12PM–4PM)</option>
+                                    <option value="Evening (5PM–9PM)">Evening (5PM–9PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Notes (Optional)</label>
+                            <textarea id="notes" placeholder="Landmark, gate instructions, etc."></textarea>
+                        </div>
                     </div>
                 </div>
 
-                <button type="submit" class="place-order-btn">Place Order Now</button>
-            </form>
-        </div>
-    </main>
+                <!-- Payment Method -->
+                <div class="checkout-card">
+                    <div class="card-header">
+                        <ion-icon name="card-outline"></ion-icon>
+                        <h2>Payment Method</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-options">
+                            <div>
+                                <input type="radio" name="payment" id="pay_cod" value="Cash on Delivery" class="payment-option" checked>
+                                <label for="pay_cod" class="payment-label">
+                                    <ion-icon name="cash-outline"></ion-icon> Cash on Delivery
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="payment" id="pay_upi" value="UPI" class="payment-option">
+                                <label for="pay_upi" class="payment-label">
+                                    <ion-icon name="phone-portrait-outline"></ion-icon> UPI / QR Code
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="payment" id="pay_card" value="Credit/Debit Card" class="payment-option">
+                                <label for="pay_card" class="payment-label">
+                                    <ion-icon name="card-outline"></ion-icon> Debit / Credit Card
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="payment" id="pay_nb" value="Net Banking" class="payment-option">
+                                <label for="pay_nb" class="payment-label">
+                                    <ion-icon name="business-outline"></ion-icon> Net Banking
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div id="orderSuccess" class="modal">
-        <div class="modal-content">
-            <i class="fas fa-check-circle" style="font-size: 3rem; color: #27ae60;"></i>
-            <h2>Order Placed Successfully!</h2>
-            <p>Order ID: <span id="orderId" style="font-weight: bold;"></span></p>
-            <button onclick="window.location.href='index.php'" style="margin-top:20px; padding:10px 20px; background:#27ae60; color:white; border:none; border-radius:5px; cursor:pointer;">Continue Shopping</button>
-        </div>
-    </div>
+            <!-- RIGHT: ORDER SUMMARY -->
+            <div>
+                <div class="checkout-card" style="position:sticky;top:90px;">
+                    <div class="card-header">
+                        <ion-icon name="receipt-outline"></ion-icon>
+                        <h2>Order Summary</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="order-items" id="orderItems">
+                            <div class="empty-cart">
+                                <ion-icon name="cart-outline"></ion-icon>
+                                <p>Your cart is empty</p>
+                            </div>
+                        </div>
 
-    <script src="scripts.js"></script>
+                        <div class="price-breakdown" id="priceBreakdown" style="display:none;">
+                            <div class="price-row">
+                                <span>Subtotal</span>
+                                <span id="subtotalAmt">₹0.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Delivery Fee</span>
+                                <span id="deliveryFee">₹40.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Discount</span>
+                                <span style="color:#27ae60;" id="discountAmt">-₹0.00</span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Total</span>
+                                <span class="amount" id="totalAmt">₹0.00</span>
+                            </div>
+                        </div>
+
+                        <button class="place-order-btn" id="placeOrderBtn" onclick="placeOrder()">
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            <a href="orders.php">
+                                
+                                Place Order
+                            </a>
+                        </button>
+                        <div class="secure-badge">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            Secured &amp; Encrypted Checkout
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUCCESS MODAL -->
+        <div class="modal-overlay" id="successModal">
+            <div class="modal-box">
+                <div class="modal-icon-wrap">
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                <h2>Order Placed! 🎉</h2>
+                <p>Your fresh groceries are on their way. We'll send a confirmation to your contact.</p>
+                <div class="order-id-badge" id="orderIdBadge">Order #0000</div>
+                <br>
+                <a href="index.php" class="modal-btn">Continue Shopping</a>
+            </div>
+        </div>
+        
+    </form>
     <script src="checkout.js"></script>
+    <script src="scripts.js"></script>
+
+
+
 </body>
+
 </html>

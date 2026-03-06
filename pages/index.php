@@ -162,6 +162,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             
             <h3> <a href="index.php">Home</a></h3>
             <h3> <a href="#Product">Product</a></h3>
+            <h3> <a href="orders.php">Orders</a></h3>
             
             <h3><a href="#Contact Us">Contact Us</a> </h3>
             
@@ -303,7 +304,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
            
     <script src="checkout.js"></script>
-
     <script src="scripts.js"></script>
 
 

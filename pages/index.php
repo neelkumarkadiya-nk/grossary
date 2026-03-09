@@ -192,7 +192,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <div class="content" >
                 <span>don't panic, go organice</span>
                 <h3>Reach For A Healthier You With Organic Foods</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto natus culpa officia quasi, accusantium explicabo?</p>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto natus culpa officia quasi, accusantium explicabo?</p> -->
                 <a href="#Contact Us" class="btn">about us</a>
             </div>
             

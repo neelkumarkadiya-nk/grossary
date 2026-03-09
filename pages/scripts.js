@@ -3,7 +3,7 @@ const products = {
         {
             id: 1,
             name: "Apple",
-            price: 1.99,
+            price: 60,
             image:
                 "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=500",
             category: "fruits",
@@ -11,7 +11,7 @@ const products = {
         {
             id: 2,
             name: "Banana",
-            price: 0.99,
+            price: 50,
             image:
                 "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500",
             category: "fruits",
@@ -19,7 +19,7 @@ const products = {
         {
             id: 3,
             name: "Orange",
-            price: 1.49,
+            price: 70,
             image:
                 "https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=500",
             category: "fruits",
@@ -27,38 +27,38 @@ const products = {
         {
             id: 4,
             name: "Mango",
-            price: 2.49,
+            price: 90,
             image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=500",
             category: "fruits",
         },
         {
             id: 11,
             name: "Strawberry",
-            price: 3.99,
+            price: 50,
             image:
                 "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=500",
             category: "fruits",
         },
-        {
-            id: 12,
-            name: "Grapes",
-            price: 2.99,
-            image:
-                "https://images.unsplash.com/photo-1596364721223-30014f01d1b6?w=500",
-            category: "fruits",
-        },
-        {
-            id: 13,
-            name: "Pineapple",
-            price: 4.5,
-            image:
-                "https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?w=500",
-            category: "fruits",
-        },
+        // {
+        //     id: 12,
+        //     name: "Grapes",
+        //     price: 2.99,
+        //     image:
+        //         "https://images.unsplash.com/photo-1596364721223-30014f01d1b6?w=500",
+        //     category: "fruits",
+        // },
+        // {
+        //     id: 13,
+        //     name: "Pineapple",
+        //     price: 4.5,
+        //     image:
+        //         "https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?w=500",
+        //     category: "fruits",
+        // },
         {
             id: 14,
             name: "Watermelon",
-            price: 5.99,
+            price: 80,
             image:
                 "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?w=500",
             category: "fruits",
@@ -66,25 +66,25 @@ const products = {
         {
             id: 25,
             name: "Blueberries",
-            price: 4.99,
+            price: 30,
             image:
                 "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=500",
             category: "fruits",
         },
-        {
-            id: 26,
-            name: "Kiwi",
-            price: 2.5,
-            image:
-                "https://images.unsplash.com/photo-1591796079474-735c9a2bc36d?w=500",
-            category: "fruits",
-        },
+        // {
+        //     id: 26,
+        //     name: "Kiwi",
+        //     price: 2.5,
+        //     image:
+        //         "https://images.unsplash.com/photo-1591796079474-735c9a2bc36d?w=500",
+        //     category: "fruits",
+        // },
     ],
     vegetables: [
         {
             id: 5,
             name: "Carrot",
-            price: 0.79,
+            price: 60,
             image:
                 "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500",
             category: "vegetables",
@@ -92,7 +92,7 @@ const products = {
         {
             id: 6,
             name: "Broccoli",
-            price: 1.29,
+            price: 20,
             image:
                 "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?w=500",
             category: "vegetables",
@@ -100,7 +100,7 @@ const products = {
         {
             id: 7,
             name: "Tomato",
-            price: 0.99,
+            price: 50,
             image:
                 "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500",
             category: "vegetables",
@@ -108,7 +108,7 @@ const products = {
         {
             id: 15,
             name: "Spinach",
-            price: 1.5,
+            price: 40,
             image:
                 "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500",
             category: "vegetables",
@@ -116,63 +116,63 @@ const products = {
         {
             id: 16,
             name: "Potato",
-            price: 0.89,
+            price: 30,
             image:
                 "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500",
             category: "vegetables",
         },
-        {
-            id: 17,
-            name: "Bell Pepper",
-            price: 1.25,
-            image:
-                "https://images.unsplash.com/photo-1563565312874-84399f5e23ad?w=500",
-            category: "vegetables",
-        },
+        // {
+        //     id: 17,
+        //     name: "Bell Pepper",
+        //     price: 1.25,
+        //     image:
+        //         "https://images.unsplash.com/photo-1563565312874-84399f5e23ad?w=500",
+        //     category: "vegetables",
+        // },
         {
             id: 18,
             name: "Cucumber",
-            price: 0.75,
+            price: 20,
             image:
                 "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=500",
             category: "vegetables",
         },
-        {
-            id: 27,
-            name: "Eggplant",
-            price: 1.1,
-            image:
-                "https://images.unsplash.com/photo-1511263152607-00c8f10f8a7e?w=500",
-            category: "vegetables",
-        },
+        // {
+        //     id: 27,
+        //     name: "Eggplant",
+        //     price: 1.1,
+        //     image:
+        //         "https://images.unsplash.com/photo-1511263152607-00c8f10f8a7e?w=500",
+        //     category: "vegetables",
+        // },
         {
             id: 28,
             name: "Corn",
-            price: 0.6,
+            price: 25,
             image: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",
             category: "vegetables",
         },
-        {
-            id: 29,
-            name: "Lettuce",
-            price: 1.99,
-            image:
-                "https://images.unsplash.com/photo-1622206141580-579f6e3cf1ad?w=500",
-            category: "vegetables",
-        },
+        // {
+        //     id: 29,
+        //     name: "Lettuce",
+        //     price: 1.99,
+        //     image:
+        //         "https://images.unsplash.com/photo-1622206141580-579f6e3cf1ad?w=500",
+        //     category: "vegetables",
+        // },
     ],
     dairy: [
         {
             id: 8,
             name: "Milk",
-            price: 2.99,
+            price: 35,
             image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500",
             category: "dairy",
         },
         {
             id: 9,
             name: "Cheese",
-            price: 3.99,
+            price: 45,
             image:
                 "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=500",
             category: "dairy",
@@ -180,14 +180,14 @@ const products = {
         {
             id: 10,
             name: "Yogurt",
-            price: 1.99,
+            price: 25,
             image: "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500",
             category: "dairy",
         },
         {
             id: 19,
             name: "Butter",
-            price: 3.49,
+            price: 35,
             image:
                 "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500",
             category: "dairy",
@@ -195,7 +195,7 @@ const products = {
         {
             id: 20,
             name: "Eggs (12pk)",
-            price: 4.99,
+            price: 40,
             image:
                 "https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=500",
             category: "dairy",
@@ -203,23 +203,23 @@ const products = {
         {
             id: 21,
             name: "Ice Cream",
-            price: 6.5,
+            price: 40,
             image:
                 "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=500",
             category: "dairy",
         },
-        {
-            id: 22,
-            name: "Cottage Cheese",
-            price: 3.25,
-            image:
-                "https://images.unsplash.com/photo-1624308462832-65935398246b?w=500",
-            category: "dairy",
-        },
+        // {
+        //     id: 22,
+        //     name: "Cottage Cheese",
+        //     price: 3.25,
+        //     image:
+        //         "https://images.unsplash.com/photo-1624308462832-65935398246b?w=500",
+        //     category: "dairy",
+        // },
         {
             id: 30,
             name: "Sour Cream",
-            price: 2.49,
+            price: 25,
             image:
                 "https://images.unsplash.com/photo-1528750997573-59b89d56f4f7?w=500",
             category: "dairy",
@@ -227,14 +227,14 @@ const products = {
         {
             id: 31,
             name: "Whipping Cream",
-            price: 3.8,
+            price: 30,
             image: "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=500",
             category: "dairy",
         },
         {
             id: 32,
             name: "Greek Yogurt",
-            price: 4.2,
+            price: 90,
             image:
                 "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500",
             category: "dairy",

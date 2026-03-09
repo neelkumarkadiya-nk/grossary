@@ -28,35 +28,6 @@ if (!$conn) {
     echo json_encode(array('success' => false, 'message' => 'DB Error: ' . mysqli_connect_error()));
     exit();
 }
-
-// Auto-create tables
-mysqli_query($conn, "CREATE TABLE IF NOT EXISTS orders (
-    id             INT AUTO_INCREMENT PRIMARY KEY,
-    username       VARCHAR(100)  NOT NULL,
-    phone          VARCHAR(20)   NOT NULL,
-    email          VARCHAR(150),
-    address        VARCHAR(255)  NOT NULL,
-    city           VARCHAR(100)  NOT NULL,
-    state          VARCHAR(100)  NOT NULL,
-    pincode        VARCHAR(10)   NOT NULL,
-    delivery_slot  VARCHAR(50),
-    notes          VARCHAR(500),
-    payment_method VARCHAR(50)   NOT NULL,
-    total_amount   DECIMAL(10,2) NOT NULL,
-    status         VARCHAR(30)   NOT NULL DEFAULT 'Pending',
-    created_at     TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
-)");
-
-mysqli_query($conn, "CREATE TABLE IF NOT EXISTS order_items (
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    order_id   INT           NOT NULL,
-    product_id INT           NOT NULL,
-    name       VARCHAR(150)  NOT NULL,
-    price      DECIMAL(10,2) NOT NULL,
-    quantity   INT           NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
-)");
-
 // Read JSON or fallback to POST
 $raw  = file_get_contents('php://input');
 $data = json_decode($raw, true);

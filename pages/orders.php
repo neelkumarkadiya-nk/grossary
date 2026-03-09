@@ -12,13 +12,13 @@ $db_pass = "";
 $db_name = "gross_db";
 $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 
-// $orders = [];
+$orders = array();
 if ($conn) {
     $safe_user = mysqli_real_escape_string($conn, $username);
     $res = mysqli_query($conn, "SELECT * FROM orders WHERE username='$safe_user' ORDER BY created_at DESC");
     while ($row = mysqli_fetch_assoc($res)) {
         $items_res = mysqli_query($conn, "SELECT * FROM order_items WHERE order_id='{$row['id']}'");
-        // $row['items'] = [];
+        $row['items'] = array();
         while ($item = mysqli_fetch_assoc($items_res)) $row['items'][] = $item;
         $orders[] = $row;
     }
@@ -204,11 +204,10 @@ if ($conn) {
         <?php endif; ?>
     </div>
     <script>
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const cc = document.getElementById('cartCount');
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        var cc = document.getElementById('cartCount');
         if (cc) cc.textContent = cart.reduce((s, i) => s + i.quantity, 0);
     </script>
-    <script src="checkout.js"></script>
 </body>
 
 </html>

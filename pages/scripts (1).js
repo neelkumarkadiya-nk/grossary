@@ -5,6 +5,7 @@ const products = {
       name: "Apple",
       price: 60,
       unit: "1 kg",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=500",
       category: "fruits",
@@ -29,6 +30,7 @@ const products = {
       name: "Banana",
       price: 50,
       unit: "1 dozen",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500",
       category: "fruits",
@@ -53,10 +55,10 @@ const products = {
       name: "Orange",
       price: 70,
       unit: "1 kg",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=500",
       category: "fruits",
-      soldOut: true,
       details: {
         description:
           "Tangy and vitamin-C rich oranges. Great for juicing, eating fresh, or zesting into desserts.",
@@ -78,6 +80,7 @@ const products = {
       name: "Mango",
       price: 90,
       unit: "500 g",
+      stock: 10,
       image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=500",
       category: "fruits",
       details: {
@@ -101,6 +104,7 @@ const products = {
       name: "Strawberry",
       price: 50,
       unit: "250 g",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=500",
       category: "fruits",
@@ -125,10 +129,10 @@ const products = {
       name: "Watermelon",
       price: 80,
       unit: "1 piece (~3 kg)",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?w=500",
       category: "fruits",
-      soldOut: true,
       details: {
         description:
           "Refreshing and hydrating watermelons. 92% water content makes them the ultimate summer fruit.",
@@ -150,6 +154,7 @@ const products = {
       name: "Blueberries",
       price: 30,
       unit: "200 g",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=500",
       category: "fruits",
@@ -174,6 +179,7 @@ const products = {
       name: "Grapes",
       price: 65,
       unit: "500 g",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=500",
       category: "fruits",
@@ -198,6 +204,7 @@ const products = {
       name: "Papaya",
       price: 45,
       unit: "1 piece (~700 g)",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1526318472351-c75fcf070305?w=500",
       category: "fruits",
@@ -222,6 +229,7 @@ const products = {
       name: "Pomegranate",
       price: 85,
       unit: "1 piece (~400 g)",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?w=500",
       category: "fruits",
@@ -248,6 +256,7 @@ const products = {
       name: "Carrot",
       price: 60,
       unit: "500 g",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500",
       category: "vegetables",
@@ -272,10 +281,10 @@ const products = {
       name: "Broccoli",
       price: 20,
       unit: "1 head (~400 g)",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?w=500",
       category: "vegetables",
-      soldOut: true,
       details: {
         description:
           "Fresh broccoli florets, dense with vitamins and minerals. Steam, stir-fry, or eat raw in salads.",
@@ -297,6 +306,7 @@ const products = {
       name: "Tomato",
       price: 50,
       unit: "500 g",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500",
       category: "vegetables",
@@ -321,6 +331,7 @@ const products = {
       name: "Spinach",
       price: 40,
       unit: "250 g bunch",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500",
       category: "vegetables",
@@ -345,6 +356,7 @@ const products = {
       name: "Potato",
       price: 30,
       unit: "1 kg",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500",
       category: "vegetables",
@@ -369,6 +381,7 @@ const products = {
       name: "Cucumber",
       price: 20,
       unit: "2 pieces",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=500",
       category: "vegetables",
@@ -393,6 +406,7 @@ const products = {
       name: "Corn",
       price: 25,
       unit: "2 cobs",
+      stock: 10,
       image: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=500",
       category: "vegetables",
       details: {
@@ -416,6 +430,7 @@ const products = {
       name: "Onion",
       price: 30,
       unit: "1 kg",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1508747703725-719777637510?w=500",
       category: "vegetables",
@@ -440,6 +455,7 @@ const products = {
       name: "Cauliflower",
       price: 35,
       unit: "1 head (~600 g)",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=500",
       category: "vegetables",
@@ -464,6 +480,7 @@ const products = {
       name: "Capsicum",
       price: 40,
       unit: "3 pieces",
+      stock: 10,
       image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=500",
       category: "vegetables",
       details: {
@@ -489,6 +506,7 @@ const products = {
       name: "Milk",
       price: 35,
       unit: "1 litre",
+      stock: 10,
       image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500",
       category: "dairy",
       details: {
@@ -512,10 +530,10 @@ const products = {
       name: "Cheese",
       price: 45,
       unit: "200 g block",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=500",
       category: "dairy",
-      soldOut: true,
       details: {
         description:
           "Premium processed cheese block. Smooth, mild flavour - perfect for sandwiches, pizzas, and pasta.",
@@ -532,12 +550,12 @@ const products = {
         tags: ["High Protein", "Processed", "Kid Friendly"],
       },
     },
-
     {
       id: 19,
       name: "Butter",
       price: 35,
       unit: "100 g",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500",
       category: "dairy",
@@ -562,6 +580,7 @@ const products = {
       name: "Eggs (12pk)",
       price: 40,
       unit: "12 eggs",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=500",
       category: "dairy",
@@ -586,6 +605,7 @@ const products = {
       name: "Ice Cream",
       price: 40,
       unit: "500 ml tub",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=500",
       category: "dairy",
@@ -605,12 +625,12 @@ const products = {
         tags: ["Dessert", "Creamy", "Frozen Treat"],
       },
     },
-
     {
       id: 32,
       name: "Ghee",
       price: 120,
       unit: "500 ml jar",
+      stock: 10,
       image:
         "https://images.unsplash.com/photo-1624528733107-2571fc0a8434?q=80&w=2137&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       category: "dairy",
@@ -635,6 +655,7 @@ const products = {
       name: "peda",
       price: 45,
       unit: "200 ml",
+      stock: 10,
       image:
         "https://media.istockphoto.com/id/2001726059/photo/peda-sweet.webp?a=1&b=1&s=612x612&w=0&k=20&c=N90bUjhO_A-mWefsyRibrnkzPp3lgMPVr4vMQ_KydZU=",
       category: "dairy",
@@ -659,6 +680,7 @@ const products = {
       name: "Buttermilk (Chaas)",
       price: 25,
       unit: "500 ml",
+      stock: 10,
       image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500",
       category: "dairy",
       details: {
@@ -682,6 +704,7 @@ const products = {
       name: "Lassi",
       price: 40,
       unit: "500 ml",
+      stock: 10,
       image:
         "https://media.istockphoto.com/id/2214375556/photo/lassi-in-clay-cup-topped-with-dry-fruits.webp?a=1&b=1&s=612x612&w=0&k=20&c=OsxAg9ZKpsQI-lc4bcmujNQb6kQCPVUun4e_aHeEUMY=",
       category: "dairy",
@@ -706,6 +729,7 @@ const products = {
       name: "Paneer",
       price: 80,
       unit: "200 g",
+      stock: 10,
       image:
         "https://media.istockphoto.com/id/2209167127/photo/indian-paneer-cheese-made-from-fresh-milk-and-lemon-juice-on-grey-background-copy-space.webp?a=1&b=1&s=612x612&w=0&k=20&c=PAn7GuHgdN5S4hlXW2lQcUV-OGegD5GuLyvKf-fsr4E=",
       category: "dairy",
@@ -728,223 +752,291 @@ const products = {
   ],
 };
 
-// (function injectStyles() {
-//   const style = document.createElement("style");
-//   style.textContent = `
-//         /* unit chip */
-//         .product-unit {
-//             font-size: .78rem; 
-//             color: #27ae60; 
-//             font-weight: 600;
-//             background: #eafaf1; 
-//             border: 1px solid #b2dfca;
-//             border-radius: 20px; 
-//             padding: 2px 10px;
-//             display: inline-block; 
-//             margin: 4px 0 6px;
-//         }
-//         /* view details link */
-//         .view-details-btn {
-//             background: none; border: none; color: #2ecc71;
-//             font-size: .82rem; font-weight: 600; cursor: pointer;
-//             padding: 0; margin-top: 2px; text-decoration: underline;
-//             font-family: inherit; display: block; margin-bottom: 4px;
-//         }
-//         .view-details-btn:hover { color: #27ae60; }
+// ═══════════════════════════════════════════════════
+//  STOCK MANAGEMENT
+// ═══════════════════════════════════════════════════
 
-//         /* sold-out card */
-//         .product-card { position: relative; }
-//         .sold-out-ribbon {
-//             position: absolute; top: 12px; right: -4px;
-//             background: #e74c3c; color: white;
-//             font-size: .7rem; font-weight: 700; letter-spacing: 1px;
-//             text-transform: uppercase; padding: 4px 12px 4px 10px;
-//             border-radius: 4px 0 0 4px;
-//             box-shadow: -2px 2px 6px rgba(0,0,0,.15); z-index: 10;
-//         }
-//         .sold-out-ribbon::after {
-//             content: ''; position: absolute; right: -6px; top: 0;
-//             border-top: 12px solid transparent;
-//             border-bottom: 12px solid transparent;
-//             border-left: 6px solid #c0392b;
-//         }
-//         .product-card.is-sold-out img { filter: grayscale(60%) opacity(.7); }
-//         .btn-sold-out {
-//             background: #e2e8f0 !important; color: #a0aec0 !important;
-//             cursor: not-allowed !important; border: none; border-radius: 8px;
-//             padding: .55rem 1rem; font-size: .9rem; font-weight: 600;
-//             width: 100%; display: flex; align-items: center;
-//             justify-content: center; gap: .4rem; font-family: inherit;
-//         }
+// Load saved stock values from localStorage and apply to products
+function loadStock() {
+  const saved = localStorage.getItem("stockMap");
+  if (!saved) return;
+  try {
+    const stockMap = JSON.parse(saved);
+    Object.values(products).flat().forEach((p) => {
+      if (stockMap[p.id] !== undefined) {
+        p.stock = stockMap[p.id];
+      }
+    });
+  } catch (e) {
+    console.error("Failed to load stock:", e);
+  }
+}
 
-//         /* ── SOLD-OUT MODAL ── */
-//         #soldOutModal {
-//             display: none; position: fixed; inset: 0;
-//             background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
-//             z-index: 99999; align-items: center; justify-content: center;
-//         }
-//         #soldOutModal.show { display: flex; animation: soFadeIn .22s ease; }
-//         @keyframes soFadeIn { from{opacity:0} to{opacity:1} }
-//         .so-box {
-//             background: #fff; border-radius: 22px;
-//             padding: 2.4rem 2.2rem 2rem; max-width: 380px; width: 92%;
-//             text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.18);
-//             animation: soPop .35s cubic-bezier(.175,.885,.32,1.275);
-//             position: relative; overflow: hidden;
-//         }
-//         @keyframes soPop { from{transform:scale(.72) translateY(20px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
-//         .so-box::before {
-//             content: ''; position: absolute; top: 0; left: 0; right: 0;
-//             height: 5px; background: linear-gradient(90deg,#e74c3c,#c0392b);
-//             border-radius: 22px 22px 0 0;
-//         }
-//         .so-icon-wrap {
-//             width: 82px; height: 82px;
-//             background: linear-gradient(135deg,#fde8e8,#fbc4c4);
-//             border-radius: 50%; display: flex; align-items: center;
-//             justify-content: center; margin: 0 auto 1.1rem;
-//             animation: soWiggle .5s ease .2s;
-//         }
-//         @keyframes soWiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-8deg)} 75%{transform:rotate(8deg)} }
-//         .so-icon-wrap ion-icon { font-size: 2.6rem; color: #e74c3c; }
-//         .so-box h2 { font-family:'Playfair Display',serif; font-size:1.65rem; color:#2d3748; margin-bottom:.45rem; }
-//         .so-product-name {
-//             display: inline-block; font-weight: 700; color: #e74c3c;
-//             background: #fef2f2; border: 1px dashed #fca5a5;
-//             border-radius: 6px; padding: 3px 12px; font-size: .95rem; margin-bottom: .75rem;
-//         }
-//         .so-box p { color: #718096; font-size: .9rem; line-height: 1.6; margin-bottom: 1.4rem; }
-//         .so-actions { display: flex; gap: .75rem; }
-//         .so-btn-close {
-//             flex: 1; padding: .75rem; border: 1.5px solid #e2e8f0;
-//             border-radius: 10px; background: #f8f8f8; color: #555;
-//             font-size: .9rem; font-weight: 600; cursor: pointer; font-family: inherit;
-//         }
-//         .so-btn-close:hover { background: #eee; }
-//         .so-btn-shop {
-//             flex: 1; padding: .75rem; border: none; border-radius: 10px;
-//             background: linear-gradient(135deg,#2ecc71,#27ae60);
-//             color: white; font-size: .9rem; font-weight: 700; cursor: pointer;
-//             font-family: inherit; box-shadow: 0 4px 14px rgba(46,204,113,.35);
-//             transition: all .25s;
-//         }
-//         .so-btn-shop:hover { transform: translateY(-2px); }
+// Save all current stock values to localStorage
+function saveStock() {
+  const stockMap = {};
+  Object.values(products).flat().forEach((p) => {
+    stockMap[p.id] = p.stock;
+  });
+  localStorage.setItem("stockMap", JSON.stringify(stockMap));
+}
 
-//         /* ── PRODUCT DETAILS MODAL ── */
-//         #productDetailsModal {
-//             display: none; position: fixed; inset: 0;
-//             background: rgba(0,0,0,.6); backdrop-filter: blur(8px);
-//             z-index: 99998; align-items: center; justify-content: center; padding: 1rem;
-//         }
-//         #productDetailsModal.show { display: flex; animation: soFadeIn .22s ease; }
-//         .pd-box {
-//             background: #fff; border-radius: 20px; max-width: 560px; width: 100%;
-//             box-shadow: 0 24px 80px rgba(0,0,0,.2);
-//             animation: soPop .35s cubic-bezier(.175,.885,.32,1.275);
-//             overflow: hidden; max-height: 90vh; display: flex; flex-direction: column;
-//         }
-//         .pd-img-wrap { position: relative; flex-shrink: 0; height: 220px; overflow: hidden; }
-//         .pd-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-//         .pd-close {
-//             position: absolute; top: 12px; right: 12px;
-//             width: 34px; height: 34px; border-radius: 50%;
-//             background: rgba(0,0,0,.45); border: none; cursor: pointer;
-//             display: flex; align-items: center; justify-content: center;
-//             color: white; font-size: 1.3rem; transition: background .2s;
-//         }
-//         .pd-close:hover { background: rgba(0,0,0,.7); }
-//         .pd-so-overlay {
-//             position: absolute; inset: 0; background: rgba(0,0,0,.4);
-//             display: flex; align-items: center; justify-content: center;
-//         }
-//         .pd-so-overlay span {
-//             background: #e74c3c; color: white; font-size: 1.1rem; font-weight: 800;
-//             letter-spacing: 2px; padding: 8px 24px; border-radius: 8px;
-//             text-transform: uppercase; box-shadow: 0 4px 16px rgba(0,0,0,.3);
-//         }
-//         .pd-body { padding: 1.4rem 1.6rem 1.8rem; overflow-y: auto; }
-//         .pd-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .6rem; }
-//         .pd-title { font-family:'Playfair Display',serif; font-size: 1.5rem; color: #2d3748; margin: 0; }
-//         .pd-price-block { text-align: right; flex-shrink: 0; }
-//         .pd-price { font-size: 1.4rem; font-weight: 800; color: #27ae60; }
-//         .pd-unit-badge {
-//             display: inline-block; font-size: .75rem; font-weight: 700;
-//             color: #27ae60; background: #eafaf1; border: 1px solid #b2dfca;
-//             border-radius: 20px; padding: 2px 10px; margin-top: 3px;
-//         }
-//         .pd-desc { color: #555; font-size: .93rem; line-height: 1.65; margin: .5rem 0 1.1rem; }
-//         .pd-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.1rem; }
-//         .pd-tag {
-//             background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a;
-//             font-size: .76rem; font-weight: 600; border-radius: 20px; padding: 3px 10px;
-//         }
-//         .pd-info-grid {
-//             display: grid; grid-template-columns: 1fr 1fr;
-//             gap: .55rem; margin-bottom: 1.2rem;
-//         }
-//         .pd-info-item {
-//             background: #fafafa; border: 1px solid #e2e8f0;
-//             border-radius: 10px; padding: .65rem .85rem;
-//         }
-//         .pd-info-item .pi-label {
-//             font-size: .72rem; font-weight: 700; color: #718096;
-//             text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2px;
-//         }
-//         .pd-info-item .pi-value { font-size: .88rem; font-weight: 600; color: #2d3748; }
-//         .pd-nutrition h4 {
-//             font-size: .85rem; font-weight: 700; color: #2d3748;
-//             text-transform: uppercase; letter-spacing: .5px;
-//             margin-bottom: .55rem; display: flex; align-items: center; gap: .4rem;
-//         }
-//         .pd-nutrition h4 ion-icon { color: #2ecc71; }
-//         .pd-nut-grid {
-//             display: grid; grid-template-columns: repeat(5,1fr); gap: .4rem; text-align: center;
-//         }
-//         .pd-nut-item {
-//             background: linear-gradient(135deg,#f0fdf4,#dcfce7);
-//             border: 1px solid #bbf7d0; border-radius: 10px; padding: .55rem .3rem;
-//         }
-//         .pd-nut-item .n-val { font-size: .88rem; font-weight: 800; color: #27ae60; }
-//         .pd-nut-item .n-lbl { font-size: .68rem; color: #718096; margin-top: 2px; }
-//         .pd-footer {
-//             padding: 1rem 1.6rem 1.4rem; border-top: 1px solid #e2e8f0;
-//             display: flex; gap: .75rem; flex-shrink: 0;
-//         }
-//         .pd-btn-close {
-//             flex: 0 0 auto; padding: .75rem 1.2rem;
-//             border: 1.5px solid #e2e8f0; border-radius: 10px;
-//             background: #f8f8f8; color: #555;
-//             font-size: .9rem; font-weight: 600; cursor: pointer; font-family: inherit;
-//         }
-//         .pd-btn-close:hover { background: #eee; }
-//         .pd-btn-cart {
-//             flex: 1; padding: .75rem; border: none; border-radius: 10px;
-//             background: linear-gradient(135deg,#2ecc71,#27ae60);
-//             color: white; font-size: .95rem; font-weight: 700; cursor: pointer;
-//             font-family: inherit; display: flex; align-items: center;
-//             justify-content: center; gap: .5rem;
-//             box-shadow: 0 4px 14px rgba(46,204,113,.35); transition: all .25s;
-//         }
-//         .pd-btn-cart:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46,204,113,.45); }
-//         .pd-btn-cart.disabled {
-//             background: #e2e8f0 !important; color: #a0aec0 !important;
-//             cursor: not-allowed !important; box-shadow: none !important; transform: none !important;
-//         }
-//         @media(max-width:480px){
-//             .pd-nut-grid { grid-template-columns: repeat(3,1fr); }
-//             .pd-info-grid { grid-template-columns: 1fr; }
-//             .pd-header { flex-direction: column; }
-//         }
-//     `;
-//   document.head.appendChild(style);
-// })();
+// Helper: get a product by id
+function getProduct(productId) {
+  return Object.values(products).flat().find((p) => p.id === productId);
+}
 
-// Option A: Use getClass().getResource() for files inside the JAR/project
-scene.getStylesheets().add(getClass().getResource("stylejs.css").toExternalForm());
+// Helper: check if product is sold out
+function isSoldOut(product) {
+  return product.stock <= 0;
+}
 
-// Option B: For files outside the project directory
-// File f = new File("page-specific/stylejs.css");
-// scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+// Refresh a single product card in-place after stock changes
+function refreshProductCard(productId) {
+  const container = document.querySelector(".products-container");
+  if (!container) return;
+  const oldCard = container.querySelector(`[data-product-id="${productId}"]`);
+  if (!oldCard) return;
+  const product = getProduct(productId);
+  if (!product) return;
+  const newCard = buildProductCard(product);
+  container.replaceChild(newCard, oldCard);
+}
+
+
+// ═══════════════════════════════════════════════════
+//  STYLES & MODALS (injected once)
+// ═══════════════════════════════════════════════════
+
+(function injectStyles() {
+  const style = document.createElement("style");
+  style.textContent = `
+        /* unit chip */
+        .product-unit {
+            font-size: .78rem; 
+            color: #27ae60; 
+            font-weight: 600;
+            background: #eafaf1; 
+            border: 1px solid #b2dfca;
+            border-radius: 20px; 
+            padding: 2px 10px;
+            display: inline-block; 
+            margin: 4px 0 6px;
+        }
+        /* view details link */
+        .view-details-btn {
+            background: none; border: none; color: #2ecc71;
+            font-size: .82rem; font-weight: 600; cursor: pointer;
+            padding: 0; margin-top: 2px; text-decoration: underline;
+            font-family: inherit; display: block; margin-bottom: 4px;
+        }
+        .view-details-btn:hover { color: #27ae60; }
+
+        /* sold-out card */
+        .product-card { position: relative; }
+        .sold-out-ribbon {
+            position: absolute; top: 12px; right: -4px;
+            background: #e74c3c; color: white;
+            font-size: .7rem; font-weight: 700; letter-spacing: 1px;
+            text-transform: uppercase; padding: 4px 12px 4px 10px;
+            border-radius: 4px 0 0 4px;
+            box-shadow: -2px 2px 6px rgba(0,0,0,.15); z-index: 10;
+        }
+        .sold-out-ribbon::after {
+            content: ''; position: absolute; right: -6px; top: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 6px solid #c0392b;
+        }
+        .product-card.is-sold-out img { filter: grayscale(60%) opacity(.7); }
+        .btn-sold-out {
+            background: #e2e8f0 !important; color: #a0aec0 !important;
+            cursor: not-allowed !important; border: none; border-radius: 8px;
+            padding: .55rem 1rem; font-size: .9rem; font-weight: 600;
+            width: 100%; display: flex; align-items: center;
+            justify-content: center; gap: .4rem; font-family: inherit;
+        }
+
+        /* stock badge */
+        .stock-badge {
+            display: inline-block; font-size: .72rem; font-weight: 700;
+            border-radius: 20px; padding: 2px 10px; margin: 2px 0 6px;
+        }
+        .stock-badge.low {
+            color: #d97706; background: #fffbeb; border: 1px solid #fcd34d;
+        }
+        .stock-badge.in-stock {
+            color: #059669; background: #ecfdf5; border: 1px solid #6ee7b7;
+        }
+
+        /* ── SOLD-OUT MODAL ── */
+        #soldOutModal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
+            z-index: 99999; align-items: center; justify-content: center;
+        }
+        #soldOutModal.show { display: flex; animation: soFadeIn .22s ease; }
+        @keyframes soFadeIn { from{opacity:0} to{opacity:1} }
+        .so-box {
+            background: #fff; border-radius: 22px;
+            padding: 2.4rem 2.2rem 2rem; max-width: 380px; width: 92%;
+            text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.18);
+            animation: soPop .35s cubic-bezier(.175,.885,.32,1.275);
+            position: relative; overflow: hidden;
+        }
+        @keyframes soPop { from{transform:scale(.72) translateY(20px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+        .so-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 5px; background: linear-gradient(90deg,#e74c3c,#c0392b);
+            border-radius: 22px 22px 0 0;
+        }
+        .so-icon-wrap {
+            width: 82px; height: 82px;
+            background: linear-gradient(135deg,#fde8e8,#fbc4c4);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 1.1rem;
+            animation: soWiggle .5s ease .2s;
+        }
+        @keyframes soWiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-8deg)} 75%{transform:rotate(8deg)} }
+        .so-icon-wrap ion-icon { font-size: 2.6rem; color: #e74c3c; }
+        .so-box h2 { font-family:'Playfair Display',serif; font-size:1.65rem; color:#2d3748; margin-bottom:.45rem; }
+        .so-product-name {
+            display: inline-block; font-weight: 700; color: #e74c3c;
+            background: #fef2f2; border: 1px dashed #fca5a5;
+            border-radius: 6px; padding: 3px 12px; font-size: .95rem; margin-bottom: .75rem;
+        }
+        .so-box p { color: #718096; font-size: .9rem; line-height: 1.6; margin-bottom: 1.4rem; }
+        .so-actions { display: flex; gap: .75rem; }
+        .so-btn-close {
+            flex: 1; padding: .75rem; border: 1.5px solid #e2e8f0;
+            border-radius: 10px; background: #f8f8f8; color: #555;
+            font-size: .9rem; font-weight: 600; cursor: pointer; font-family: inherit;
+        }
+        .so-btn-close:hover { background: #eee; }
+        .so-btn-shop {
+            flex: 1; padding: .75rem; border: none; border-radius: 10px;
+            background: linear-gradient(135deg,#2ecc71,#27ae60);
+            color: white; font-size: .9rem; font-weight: 700; cursor: pointer;
+            font-family: inherit; box-shadow: 0 4px 14px rgba(46,204,113,.35);
+            transition: all .25s;
+        }
+        .so-btn-shop:hover { transform: translateY(-2px); }
+
+        /* ── PRODUCT DETAILS MODAL ── */
+        #productDetailsModal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,.6); backdrop-filter: blur(8px);
+            z-index: 99998; align-items: center; justify-content: center; padding: 1rem;
+        }
+        #productDetailsModal.show { display: flex; animation: soFadeIn .22s ease; }
+        .pd-box {
+            background: #fff; border-radius: 20px; max-width: 560px; width: 100%;
+            box-shadow: 0 24px 80px rgba(0,0,0,.2);
+            animation: soPop .35s cubic-bezier(.175,.885,.32,1.275);
+            overflow: hidden; max-height: 90vh; display: flex; flex-direction: column;
+        }
+        .pd-img-wrap { position: relative; flex-shrink: 0; height: 220px; overflow: hidden; }
+        .pd-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .pd-close {
+            position: absolute; top: 12px; right: 12px;
+            width: 34px; height: 34px; border-radius: 50%;
+            background: rgba(0,0,0,.45); border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.3rem; transition: background .2s;
+        }
+        .pd-close:hover { background: rgba(0,0,0,.7); }
+        .pd-so-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,.4);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .pd-so-overlay span {
+            background: #e74c3c; color: white; font-size: 1.1rem; font-weight: 800;
+            letter-spacing: 2px; padding: 8px 24px; border-radius: 8px;
+            text-transform: uppercase; box-shadow: 0 4px 16px rgba(0,0,0,.3);
+        }
+        .pd-body { padding: 1.4rem 1.6rem 1.8rem; overflow-y: auto; }
+        .pd-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .6rem; }
+        .pd-title { font-family:'Playfair Display',serif; font-size: 1.5rem; color: #2d3748; margin: 0; }
+        .pd-price-block { text-align: right; flex-shrink: 0; }
+        .pd-price { font-size: 1.4rem; font-weight: 800; color: #27ae60; }
+        .pd-unit-badge {
+            display: inline-block; font-size: .75rem; font-weight: 700;
+            color: #27ae60; background: #eafaf1; border: 1px solid #b2dfca;
+            border-radius: 20px; padding: 2px 10px; margin-top: 3px;
+        }
+        .pd-stock-info {
+            font-size: .8rem; font-weight: 700; margin-top: 4px;
+            border-radius: 20px; padding: 2px 10px; display: inline-block;
+        }
+        .pd-stock-info.low { color: #d97706; background: #fffbeb; border: 1px solid #fcd34d; }
+        .pd-stock-info.in-stock { color: #059669; background: #ecfdf5; border: 1px solid #6ee7b7; }
+        .pd-stock-info.sold-out { color: #e74c3c; background: #fef2f2; border: 1px solid #fca5a5; }
+        .pd-desc { color: #555; font-size: .93rem; line-height: 1.65; margin: .5rem 0 1.1rem; }
+        .pd-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.1rem; }
+        .pd-tag {
+            background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a;
+            font-size: .76rem; font-weight: 600; border-radius: 20px; padding: 3px 10px;
+        }
+        .pd-info-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: .55rem; margin-bottom: 1.2rem;
+        }
+        .pd-info-item {
+            background: #fafafa; border: 1px solid #e2e8f0;
+            border-radius: 10px; padding: .65rem .85rem;
+        }
+        .pd-info-item .pi-label {
+            font-size: .72rem; font-weight: 700; color: #718096;
+            text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2px;
+        }
+        .pd-info-item .pi-value { font-size: .88rem; font-weight: 600; color: #2d3748; }
+        .pd-nutrition h4 {
+            font-size: .85rem; font-weight: 700; color: #2d3748;
+            text-transform: uppercase; letter-spacing: .5px;
+            margin-bottom: .55rem; display: flex; align-items: center; gap: .4rem;
+        }
+        .pd-nutrition h4 ion-icon { color: #2ecc71; }
+        .pd-nut-grid {
+            display: grid; grid-template-columns: repeat(5,1fr); gap: .4rem; text-align: center;
+        }
+        .pd-nut-item {
+            background: linear-gradient(135deg,#f0fdf4,#dcfce7);
+            border: 1px solid #bbf7d0; border-radius: 10px; padding: .55rem .3rem;
+        }
+        .pd-nut-item .n-val { font-size: .88rem; font-weight: 800; color: #27ae60; }
+        .pd-nut-item .n-lbl { font-size: .68rem; color: #718096; margin-top: 2px; }
+        .pd-footer {
+            padding: 1rem 1.6rem 1.4rem; border-top: 1px solid #e2e8f0;
+            display: flex; gap: .75rem; flex-shrink: 0;
+        }
+        .pd-btn-close {
+            flex: 0 0 auto; padding: .75rem 1.2rem;
+            border: 1.5px solid #e2e8f0; border-radius: 10px;
+            background: #f8f8f8; color: #555;
+            font-size: .9rem; font-weight: 600; cursor: pointer; font-family: inherit;
+        }
+        .pd-btn-close:hover { background: #eee; }
+        .pd-btn-cart {
+            flex: 1; padding: .75rem; border: none; border-radius: 10px;
+            background: linear-gradient(135deg,#2ecc71,#27ae60);
+            color: white; font-size: .95rem; font-weight: 700; cursor: pointer;
+            font-family: inherit; display: flex; align-items: center;
+            justify-content: center; gap: .5rem;
+            box-shadow: 0 4px 14px rgba(46,204,113,.35); transition: all .25s;
+        }
+        .pd-btn-cart:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46,204,113,.45); }
+        .pd-btn-cart.disabled {
+            background: #e2e8f0 !important; color: #a0aec0 !important;
+            cursor: not-allowed !important; box-shadow: none !important; transform: none !important;
+        }
+        @media(max-width:480px){
+            .pd-nut-grid { grid-template-columns: repeat(3,1fr); }
+            .pd-info-grid { grid-template-columns: 1fr; }
+            .pd-header { flex-direction: column; }
+        }
+    `;
+  document.head.appendChild(style);
+})();
 
 
 (function injectSoldOutModal() {
@@ -990,6 +1082,7 @@ scene.getStylesheets().add(getClass().getResource("stylejs.css").toExternalForm(
                     <div class="pd-price-block">
                         <div class="pd-price" id="pdPrice"></div>
                         <div class="pd-unit-badge" id="pdUnit"></div>
+                        <div class="pd-stock-info" id="pdStockInfo"></div>
                     </div>
                 </div>
                 <p class="pd-desc" id="pdDesc"></p>
@@ -1027,12 +1120,11 @@ function scrollToProducts() {
 
 // ── Details modal helpers ─────────────────────────────
 function openDetailsModal(productId) {
-  const product = Object.values(products)
-    .flat()
-    .find((p) => p.id === productId);
+  const product = getProduct(productId);
   if (!product) return;
   const d = product.details || {};
   const nut = d.nutrition || {};
+  const soldOut = isSoldOut(product);
 
   document.getElementById("pdImage").src = product.image;
   document.getElementById("pdImage").alt = product.name;
@@ -1041,9 +1133,22 @@ function openDetailsModal(productId) {
     "Rs." + product.price.toFixed(2);
   document.getElementById("pdUnit").textContent = product.unit || "";
   document.getElementById("pdDesc").textContent = d.description || "";
-  document.getElementById("pdSoldOutOverlay").style.display = product.soldOut
+  document.getElementById("pdSoldOutOverlay").style.display = soldOut
     ? "flex"
     : "none";
+
+  // Stock info badge
+  const stockEl = document.getElementById("pdStockInfo");
+  if (soldOut) {
+    stockEl.textContent = "Out of Stock";
+    stockEl.className = "pd-stock-info sold-out";
+  } else if (product.stock <= 3) {
+    stockEl.textContent = `Only ${product.stock} left!`;
+    stockEl.className = "pd-stock-info low";
+  } else {
+    stockEl.textContent = `${product.stock} in stock`;
+    stockEl.className = "pd-stock-info in-stock";
+  }
 
   // tags
   document.getElementById("pdTags").innerHTML = (d.tags || [])
@@ -1093,7 +1198,7 @@ function openDetailsModal(productId) {
 
   // cart button
   const btn = document.getElementById("pdCartBtn");
-  if (product.soldOut) {
+  if (soldOut) {
     btn.className = "pd-btn-cart disabled";
     btn.innerHTML =
       '<ion-icon name="close-circle-outline"></ion-icon> Sold Out';
@@ -1126,14 +1231,20 @@ function updateCartCount() {
 }
 
 function addToCart(productId) {
-  const product = Object.values(products)
-    .flat()
-    .find((p) => p.id === productId);
+  const product = getProduct(productId);
   if (!product) return;
-  if (product.soldOut) {
+
+  // Check if sold out
+  if (isSoldOut(product)) {
     showSoldOutModal(product.name);
     return;
   }
+
+  // Decrease stock by 1
+  product.stock -= 1;
+  saveStock();
+
+  // Add to cart
   const existing = cart.find((i) => i.id === productId);
   if (existing) {
     existing.quantity += 1;
@@ -1142,6 +1253,10 @@ function addToCart(productId) {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
+
+  // Refresh card UI to reflect new stock / sold-out state
+  refreshProductCard(productId);
+
   alert("Product added to cart!");
 }
 
@@ -1149,19 +1264,31 @@ function addToCart(productId) {
 //  BUILD PRODUCT CARD
 // ═══════════════════════════════════════════════════
 function buildProductCard(product) {
-  const isSO = !!product.soldOut;
+  const soldOut = isSoldOut(product);
   const card = document.createElement("div");
-  card.className = "product-card" + (isSO ? " is-sold-out" : "");
+  card.className = "product-card" + (soldOut ? " is-sold-out" : "");
+  card.dataset.productId = product.id; // needed for refreshProductCard
+
+  // Stock badge HTML
+  let stockBadge = "";
+  if (!soldOut) {
+    if (product.stock <= 3) {
+      stockBadge = `<span class="stock-badge low">⚠ Only ${product.stock} left!</span>`;
+    } else {
+      stockBadge = `<span class="stock-badge in-stock">✔ In Stock (${product.stock})</span>`;
+    }
+  }
 
   card.innerHTML = `
-        ${isSO ? '<div class="sold-out-ribbon">Sold Out</div>' : ""}
+        ${soldOut ? '<div class="sold-out-ribbon">Sold Out</div>' : ""}
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <span class="product-unit">${product.unit || ""}</span>
+        ${stockBadge}
         <p class="price">Rs.${product.price.toFixed(2)}</p>
         <button class="view-details-btn" onclick="openDetailsModal(${product.id})">View Details</button>
         ${
-          isSO
+          soldOut
             ? `<button class="btn-sold-out" onclick="showSoldOutModal('${product.name}')">
                    <ion-icon name="close-circle-outline"></ion-icon> Sold Out
                </button>`
@@ -1209,6 +1336,9 @@ function displayCart() {
   let total = 0;
   cart.forEach((item) => {
     total += item.price * item.quantity;
+    const product = getProduct(item.id);
+    // Remaining stock + what's in cart = total available
+    const maxQty = item.quantity + (product ? product.stock : 0);
     const el = document.createElement("div");
     el.className = "cart-item";
     el.innerHTML = `
@@ -1219,9 +1349,10 @@ function displayCart() {
                 <div class="cart-item-quantity">
                     <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
                     <span>${item.quantity}</span>
-                    <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                    <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" ${item.quantity >= maxQty ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ""}>+</button>
                     <button onclick="removeFromCart(${item.id})">Remove</button>
                 </div>
+                ${item.quantity >= maxQty ? '<small style="color:#d97706;font-size:.75rem;">Max stock reached</small>' : ""}
             </div>`;
     cartContainer.appendChild(el);
   });
@@ -1234,15 +1365,50 @@ function updateQuantity(productId, newQuantity) {
     return;
   }
   const item = cart.find((i) => i.id === productId);
-  if (item) {
-    item.quantity = newQuantity;
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    displayCart();
+  const product = getProduct(productId);
+  if (!item) return;
+
+  const oldQty = item.quantity;
+  const diff = newQuantity - oldQty; // positive = increase, negative = decrease
+
+  if (diff > 0) {
+    // Trying to add more — check stock
+    if (product && product.stock <= 0) {
+      alert("No more stock available for " + item.name);
+      return;
+    }
+    if (product) {
+      product.stock -= diff;
+      if (product.stock < 0) product.stock = 0;
+      saveStock();
+      refreshProductCard(productId);
+    }
+  } else if (diff < 0) {
+    // Reducing quantity — restore stock
+    if (product) {
+      product.stock += Math.abs(diff);
+      saveStock();
+      refreshProductCard(productId);
+    }
   }
+
+  item.quantity = newQuantity;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  displayCart();
 }
 
 function removeFromCart(productId) {
+  const item = cart.find((i) => i.id === productId);
+  const product = getProduct(productId);
+
+  // Restore stock when item is fully removed from cart
+  if (item && product) {
+    product.stock += item.quantity;
+    saveStock();
+    refreshProductCard(productId);
+  }
+
   cart = cart.filter((i) => i.id !== productId);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
@@ -1274,6 +1440,7 @@ function setupSearch() {
 //  INIT
 
 document.addEventListener("DOMContentLoaded", () => {
+  loadStock();       // ← restore saved stock from localStorage first
   updateCartCount();
   displayProducts();
   displayCategories();

@@ -86,15 +86,15 @@ async function placeOrder() {
     const discount = subtotal >= 500 ? 50 : 0;
     const total    = subtotal + DELIVERY_FEE - discount;
 
+    // username is intentionally omitted — process_checkout.php must use $_SESSION['username']
     const payload = {
-        username: document.getElementById('fullName').value.trim(),
+        fullName: document.getElementById('fullName').value.trim(),
         phone:    document.getElementById('phone').value.trim(),
         email:    document.getElementById('email').value.trim(),
         address:  document.getElementById('address').value.trim(),
         city:     document.getElementById('city').value.trim(),
         state:    document.getElementById('state').value,
         pincode:  document.getElementById('pincode').value.trim(),
-        slot:     document.getElementById('slot').value,
         notes:    document.getElementById('notes').value.trim(),
         payment:  document.querySelector('input[name="payment"]:checked').value,
         cart:     cart,

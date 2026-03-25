@@ -111,19 +111,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>PIN Code</label>
-                                <input type="text" id="pincode" placeholder="380001" maxlength="6">
-                            </div>
-                            <div class="form-group">
-                                <label>Delivery Slot</label>
-                                <select id="slot">
-                                    <option value="Morning (7AM–11AM)">Morning (7AM–11AM)</option>
-                                    <option value="Afternoon (12PM–4PM)">Afternoon (12PM–4PM)</option>
-                                    <option value="Evening (5PM–9PM)">Evening (5PM–9PM)</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label>PIN Code</label>
+                            <input type="text" id="pincode" placeholder="380001" maxlength="6">
                         </div>
                         <div class="form-group">
                             <label>Delivery Notes (Optional)</label>

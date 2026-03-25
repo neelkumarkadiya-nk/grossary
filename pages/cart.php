@@ -54,6 +54,7 @@
     <script src="coustomer.js"></script>
     <script src="checkout.js"> </script>
     <script src="scripts.js"></script>
+    <script src="scripts (1).js"></script>
 
 </body>
 </html> 

@@ -305,6 +305,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
            
     <script src="checkout.js"></script>
     <script src="scripts.js"></script>
+    <script src="scripts (1).js"></script>
 
 
 

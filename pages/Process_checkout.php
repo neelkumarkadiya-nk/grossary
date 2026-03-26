@@ -1,23 +1,15 @@
 <?php
-// ✅ MUST BE FIRST - suppress all PHP warnings/notices that break JSON
-error_reporting(0);
-ini_set('display_errors', 0);
-ob_start(); // buffer any accidental output
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 session_start();
 
-// Always return JSON
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-
-// Clear any buffered output before sending JSON
-ob_clean();
-
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    echo json_encode(array('success' => false, 'message' => 'Not logged in.'));
+    header("Location: login.php");
     exit();
 }
 
+// ── DB CONFIG ──────────────────────────────────────
 $host    = "localhost";
 $db_user = "root";
 $db_pass = "";
@@ -25,77 +17,67 @@ $db_name = "gross_db";
 
 $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 if (!$conn) {
-    echo json_encode(array('success' => false, 'message' => 'DB Error: ' . mysqli_connect_error()));
-    exit();
+    die("Database connection failed: " . mysqli_connect_error());
 }
 
-// Read JSON or fallback to POST
-$raw  = file_get_contents('php://input');
-$data = json_decode($raw, true);
 
-// Fallback: if JSON failed, try reading from $_POST
-if (!$data && !empty($_POST)) {
-    $data = $_POST;
-    if (isset($data['cart']) && is_string($data['cart'])) {
-        $data['cart'] = json_decode($data['cart'], true);
-    }
-}
-
-if (!$data) {
-    echo json_encode(array('success' => false, 'message' => 'Invalid data received. Raw: ' . substr($raw, 0, 200)));
-    exit();
-}
-
+// ── READ POST DATA ─────────────────────────────────
 function clean($conn, $val) {
-    $val = isset($val) ? $val : '';
-    return mysqli_real_escape_string($conn, trim((string)$val));
+    return mysqli_real_escape_string($conn, trim(strval($val)));
 }
 
-// ✅ USERNAME always comes from the session — never from the client payload
-$username       = clean($conn, $_SESSION['username']);
-$phone          = clean($conn, isset($data['phone'])    ? $data['phone']    : '');
-$email          = clean($conn, isset($data['email'])    ? $data['email']    : '');
-$address        = clean($conn, isset($data['address'])  ? $data['address']  : '');
-$city           = clean($conn, isset($data['city'])     ? $data['city']     : '');
-$state          = clean($conn, isset($data['state'])    ? $data['state']    : '');
-$pincode        = clean($conn, isset($data['pincode'])  ? $data['pincode']  : '');
-$notes          = clean($conn, isset($data['notes'])    ? $data['notes']    : '');
-$payment_method = clean($conn, isset($data['payment'])  ? $data['payment']  : '');
-$total_amount   = floatval(isset($data['total'])        ? $data['total']    : 0);
-$cart           = isset($data['cart'])                  ? $data['cart']     : array();
+$username  = clean($conn, isset($_SESSION['username']) ? $_SESSION['username'] : '');
+$full_name = clean($conn, isset($_POST['fullName'])  ? $_POST['fullName']  : '');
+$phone     = clean($conn, isset($_POST['phone'])     ? $_POST['phone']     : '');
+$email     = clean($conn, isset($_POST['email'])     ? $_POST['email']     : '');
+$address   = clean($conn, isset($_POST['address'])   ? $_POST['address']   : '');
+$city      = clean($conn, isset($_POST['city'])      ? $_POST['city']      : '');
+$state     = clean($conn, isset($_POST['state'])     ? $_POST['state']     : '');
+$pincode   = clean($conn, isset($_POST['pincode'])   ? $_POST['pincode']   : '');
+$notes     = clean($conn, isset($_POST['notes'])     ? $_POST['notes']     : '');
+$payment   = clean($conn, isset($_POST['payment'])   ? $_POST['payment']   : 'Cash on Delivery');
+$total     = floatval(isset($_POST['total'])         ? $_POST['total']     : 0);
 
-if (!$username || !$phone || !$address || !$city || !$state || !$pincode) {
-    echo json_encode(array('success' => false, 'message' => 'Please fill all required fields.'));
-    exit();
+$cart_json = isset($_POST['cart']) ? $_POST['cart'] : '[]';
+$cart      = json_decode($cart_json, true);
+
+// ── VALIDATE ───────────────────────────────────────
+if (!$full_name || !$phone || !$address || !$city || !$state || !$pincode) {
+    die("Error: Please fill in all required fields. <a href='javascript:history.back()'>Go back</a>");
 }
 
 if (empty($cart)) {
-    echo json_encode(array('success' => false, 'message' => 'Cart is empty.'));
-    exit();
+    die("Error: Cart is empty. <a href='javascript:history.back()'>Go back</a>");
 }
 
-// ✅ delivery_slot column removed from INSERT
-$sql = "INSERT INTO orders (username, phone, email, address, city, state, pincode, notes, payment_method, total_amount)
-        VALUES ('$username','$phone','$email','$address','$city','$state','$pincode','$notes','$payment_method','$total_amount')";
+// ── INSERT ORDER ───────────────────────────────────
+$sql = "INSERT INTO orders (username, full_name, phone, email, address, city, state, pincode, notes, payment_method, total_amount)
+        VALUES ('$username','$full_name','$phone','$email','$address','$city','$state','$pincode','$notes','$payment','$total')";
 
 if (!mysqli_query($conn, $sql)) {
-    echo json_encode(array('success' => false, 'message' => 'DB insert failed: ' . mysqli_error($conn)));
-    exit();
+    die("DB Error (orders): " . mysqli_error($conn));
 }
 
 $order_id = mysqli_insert_id($conn);
 
+// ── INSERT ORDER ITEMS ─────────────────────────────
 foreach ($cart as $item) {
     $pid   = intval(isset($item['id'])       ? $item['id']       : 0);
     $name  = clean($conn, isset($item['name'])   ? $item['name']   : 'Item');
     $price = floatval(isset($item['price'])  ? $item['price']    : 0);
     $qty   = intval(isset($item['quantity']) ? $item['quantity']  : 1);
-    mysqli_query($conn, "INSERT INTO order_items (order_id, product_id, name, price, quantity)
-                         VALUES ('$order_id','$pid','$name','$price','$qty')");
+
+    $sql2 = "INSERT INTO order_items (order_id, product_id, name, price, quantity)
+             VALUES ('$order_id','$pid','$name','$price','$qty')";
+    if (!mysqli_query($conn, $sql2)) {
+        die("DB Error (order_items): " . mysqli_error($conn));
+    }
 }
 
 mysqli_close($conn);
 
-echo json_encode(array('success' => true, 'order_id' => $order_id, 'message' => 'Order placed!'));
+// ── SUCCESS — redirect to success page ────────────
+// Both files are in /pages/ so just use filename
+header("Location: orders.php?order_id=" . $order_id);
 exit();
 ?>

@@ -303,8 +303,9 @@ foreach ($orders as $o) {
     </div>
 
     <?php foreach ($orders as $idx => $order):
-        $sc        = getStatusStyle($order['status'], $statusColors);
-        $delay     = $idx * 60;
+        $sc    = getStatusStyle($order['status'], $statusColors);
+        $delay = $idx * 60;
+        $slot  = isset($order['delivery_slot']) ? $order['delivery_slot'] : '-';
         $itemCount = count($order['items']);
     ?>
     <div class="order-card" style="animation-delay:<?php echo $delay; ?>ms;">
@@ -333,6 +334,10 @@ foreach ($orders as $o) {
                 <div class="meta-item">
                     <span class="meta-label">Payment</span>
                     <span class="meta-value"><?php echo htmlspecialchars($order['payment_method']); ?></span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Slot</span>
+                    <span class="meta-value"><?php echo htmlspecialchars($slot); ?></span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Phone</span>

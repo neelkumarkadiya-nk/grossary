@@ -144,62 +144,7 @@ function getStatusStyle($status, $sc) {
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="profile.css">
-    <style>
-    .order-mini-card {
-        border: 1.5px solid var(--border);
-        border-radius: 12px;
-        overflow: hidden;
-        margin-bottom: 1rem;
-        transition: box-shadow .2s;
-    }
-    .order-mini-card:hover { box-shadow: var(--shadow-lg); }
-    .order-mini-head {
-        background: linear-gradient(90deg,#2d6a4f 0%,#40916c 100%);
-        padding: .75rem 1.2rem;
-        display: flex; align-items: center; justify-content: space-between;
-        flex-wrap: wrap; gap: .4rem;
-    }
-    .o-num { color:#fff; font-weight:700; font-size:.95rem; display:flex; align-items:center; gap:.4rem; }
-    .o-date { color:rgba(255,255,255,.7); font-size:.78rem; }
-    .status-pill {
-        display: inline-flex; align-items: center; gap:.35rem;
-        padding:.25rem .75rem; border-radius:999px; font-size:.72rem; font-weight:700;
-        border: 1.5px solid;
-    }
-    .status-dot-sm { width:6px; height:6px; border-radius:50%; }
-    .order-mini-body { padding:1rem 1.2rem; }
-    .order-mini-meta {
-        display: grid; grid-template-columns: repeat(2, 1fr);
-        gap:.6rem 1rem; margin-bottom:.8rem;
-        padding-bottom:.8rem; border-bottom:1px solid var(--border);
-        font-size:.83rem;
-    }
-    .ometa-lbl { color:var(--ink-lt); font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; font-weight:600; }
-    .ometa-val { color:var(--ink); font-weight:600; margin-top:2px; }
-    .order-items-list { display:flex; flex-direction:column; gap:.4rem; }
-    .order-item-row {
-        display:flex; align-items:center; justify-content:space-between;
-        font-size:.83rem; padding:.4rem .3rem;
-        border-bottom:1px dashed var(--border);
-    }
-    .order-item-row:last-child { border-bottom:none; }
-    .order-total-row {
-        display:flex; justify-content:flex-end; align-items:center; gap:.5rem;
-        margin-top:.8rem; padding-top:.8rem; border-top:1.5px solid var(--border);
-    }
-    .order-total-lbl { font-size:.82rem; color:var(--ink-lt); font-weight:600; }
-    .order-total-amt { font-size:1.1rem; font-weight:700; color:#2d6a4f; }
-    .view-all-link {
-        display:block; text-align:center; margin-top:1.5rem;
-        color:var(--green); font-weight:600; font-size:.9rem; text-decoration:none;
-    }
-    .view-all-link:hover { text-decoration:underline; }
-    .addr-summary {
-        background:var(--cream); border-radius:10px;
-        padding:.85rem 1rem; margin-top:1rem;
-        font-size:.83rem; color:var(--ink-mid); line-height:1.7;
-    }
-    </style>
+
 </head>
 <body>
 

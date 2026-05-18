@@ -1,458 +1,349 @@
+<?php
+$msg = '';
+$msg_type = '';
+if (isset($_GET['registered']) && $_GET['registered'] == '1') {
+    $msg = 'Account created! Please login below.';
+    $msg_type = 'success';
+}
+if (isset($_GET['error'])) {
+    $msg = htmlspecialchars($_GET['error']);
+    $msg_type = 'error';
+}
+$active_tab = (isset($_GET['tab']) && $_GET['tab'] === 'register') ? 'register' : 'login';
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up / Login Form</title>
-    <link rel="stylesheet" href="login.css" />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet"
-    />
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Grocery – Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-      * {
-        
-        padding: 0;
-        
-        margin: 0;
-        
-        box-sizing: border-box;
-        
-        font-family: "Jost", sans-serif;
-        
-      }
-      
-      
-      
-      body{
-        
-        display: flex;
-        
-        justify-content: center;
-        
-        align-items: center;
-        
-        height: 100vh;
-        
-        /* background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
-        background-image: url(home-bg.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        
-        
-        
-      }
-      
-      
-      
-      main{
-        
-        width: 350px;
-        
-        height: 500px;
-        
-        /* background-color: #302b63; */
-        background-color: #54cc0acb;
-        
-        box-shadow: 0px 0px 50px 2px black;
-        position: absolute;
-        left: 10%;
-        
-        border-radius: 10px;
-        
-        overflow: hidden;
-        
-      }
-      
-      
-      #chk{
-        
-        display: none;
-        
-      }
-      
-      
-      
-      .signup{
-        
-        width: 100%;
-        
-        height: 100%;
-        
-      }
-      
-      
-      
-      .signupForm{
-        
-        display: flex;
-        
-        justify-content: center;
-        
-        align-items: center;
-        
-        flex-direction: column;
-        
-      }
-      
-      .signupForm label{
-        
-        font-size: 35px;
-        
-        color: #fff;
-        
-        font-weight: bold;
-        
-        margin: 35px 0px;
-        
-        cursor: pointer;
-        
-        transition: .8s ease-in-out;
-        
-      }
-      
-      .user_type{
-        
-        width: 70%;
-        
-        height: 40px;
-        
-        padding: 5px;
-        
-        font-size: 19px;
-        
-        margin-bottom: 9px;
-        
-        border: none;
-        
-        outline: none;
-        
-        border-radius: 4px;
-        
-        background: #e0dede;
-      }
-      
-      
-      input{
-        
-        width: 70%;
-        
-        height: 40px;
-        
-        padding: 10px;
-        
-        font-size: 20px;
-        
-        margin-bottom: 20px;
-        
-        border: none;
-        
-        outline: none;
-        
-        border-radius: 4px;
-        
-        background: #e0dede;
-        
-      }
-      
-      
-      
-      button{
-        
-        width: 60%;
-        
-        padding: 7px;
-        
-        font-size: 18px;
-        
-        font-weight: 700;
-        
-        color: #fff;
-        
-        background: #573b8a;
-        
-        border: none;
-        
-        outline: none;
-        
-        border-radius: 5px;
-        
-        cursor: pointer;
-        
-      }
+        :root {
+            --green:      #2ecc71;
+            --green-dark: #27ae60;
+            --white:      #ffffff;
+            --radius:     16px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
 
-      .login-btn{
+        body {
+            min-height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-        width: 60%;
-        
-        padding: 7px;
-        
-        font-size: 18px;
-        
-        font-weight: 700;
-        
-        color: #fff;
-        
-        background: #573b8a;
-        
-        border: none;
-        
-        outline: none;
-        
-        border-radius: 5px;
-        
-        cursor: pointer;
+        /* ── FULL PAGE BG IMAGE ── */
+        .bg {
+            position: fixed;
+            inset: 0;
+            background: url('home-bg.jpg') center center / cover no-repeat;
+            z-index: 0;
+        }
+        .bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(10, 40, 20, 0.82) 0%,
+                rgba(15, 50, 30, 0.70) 50%,
+                rgba(5, 25, 12, 0.88) 100%);
+        }
 
-      }
-      
-      
-      
-      button:hover{
-        
-        background: #6d44b8;
-        
-      }
-      
-      
-      
-      .login{
-        
-        width: 100%;
-        
-        height: 450px;
-        
-        background: #eee;
-        
-        border-radius: 60% / 10%;
-        
-        transform: translateY(-95px);
-        
-        transition: .8s ease-in-out;
-        
-      }
-      
-      
-      
-      .login form{
-        
-        display: flex;
-        
-        justify-content: center;
-        
-        align-items: center;
-        
-        flex-direction: column;
-        
-      }
-      
-      
-      
-      .login label{
-        
-        font-size: 35px;
-        
-        color: #573b8a;
-        
-        font-weight: bold;
-        
-        margin: 15px 0px 50px 0px;
-        
-        cursor: pointer;
-        
-        transform: scale(.6);
-        
-        transition: .8s ease-in-out;
-        
-      }
-      
+        /* ── FLOATING CARD ── */
+        .card {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 460px;
+            margin: 1.5rem;
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+            animation: floatIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+        }
 
-      #chk:checked~.login{
-        
-        transform: translateY(-415px);
-        
-      }
-      
-      
-      
-      #chk:checked~.login label{
-        
-        transform: scale(1);
-        
-      }
-      
-      #chk:checked~.signup {
-        transform: translateY(-415px);
-        transform: scale(1);
+        @keyframes floatIn {
+            from { opacity:0; transform: translateY(30px) scale(0.97); }
+            to   { opacity:1; transform: translateY(0)  scale(1);    }
+        }
 
+        /* ── LOGO ── */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        .logo-icon {
+            width: 46px; height: 46px;
+            background: var(--green);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: -0.3px;
+        }
 
+        /* ── TABS ── */
+        .tabs {
+            display: flex;
+            background: rgba(255,255,255,0.07);
+            border-radius: 10px;
+            padding: 4px;
+            margin-bottom: 1.8rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 0.6rem;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 500;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .tab-btn.active {
+            background: var(--green);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(46,204,113,0.35);
+        }
 
-      }
+        /* ── PANELS ── */
+        .panel { display: none; }
+        .panel.active { display: block; }
 
-      #chk:checked~.signup button{
+        .panel-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        .panel-sub {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 1.5rem;
+        }
 
-        transform: scale(1);
+        /* ── FIELDS ── */
+        .field { margin-bottom: 1rem; }
+        .field label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 0.4rem;
+        }
+        .input-wrap {
+            position: relative;
+        }
+        .input-wrap span {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+        .field input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
+            background: rgba(255,255,255,0.08);
+            border: 1.5px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .field input::placeholder { color: rgba(255,255,255,0.22); }
+        .field input:focus {
+            border-color: var(--green);
+            background: rgba(46,204,113,0.08);
+        }
 
+        /* ── SUBMIT BTN ── */
+        .submit-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 0.6rem;
+            transition: all 0.25s;
+            box-shadow: 0 6px 22px rgba(46,204,113,0.35);
+            letter-spacing: 0.3px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(46,204,113,0.45);
+        }
 
-      }
-      
-      #chk:checked~.signup label{
-        
-        transform: scale(.6);
-        
-      }
+        /* ── ALERT ── */
+        .alert {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+        .alert.success {
+            background: rgba(46,204,113,0.15);
+            border: 1px solid rgba(46,204,113,0.3);
+            color: #7de8aa;
+        }
+        .alert.error {
+            background: rgba(231,76,60,0.15);
+            border: 1px solid rgba(231,76,60,0.3);
+            color: #f1948a;
+        }
 
+        /* ── SWITCH LINK ── */
+        .switch-link {
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 1.2rem;
+        }
+        .switch-link a {
+            color: var(--green);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-      /* successAlert */
-      .custom-alert {
-        width: 100%;
-        position: absolute;
-        top: 20px;
-        right: -100%; /* Hidden off-screen */
-        background: #27ae60;
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        transition: all 0.5s ease-in-out;
-        z-index: 1001;
-      }
-      
-      /* Slides in from the right */
-      .custom-alert.show {
-        right: 20px; 
-      }
-      
-      .alert-content {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-      
-      .alert-content h4 { margin: 0; font-size: 1.1rem; }
-      .alert-content p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
-      .icon { font-size: 24px; }
-      
+        /* ── FOOTER TAG ── */
+        .card-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.2);
+        }
     </style>
-  </head>
-  <body>
-       
-    
-    
-    <main>
-      
-      
-      
-      
-      <!-- <form action="process_register.php" method="POST" id="fill"> -->
-        
-        <input type="checkbox" aria-hidden="false" id="chk">
-        <div class="signup">
-          <form action="process_register.php" method="POST" class="signupForm">
-            
-            <div id="successAlert" class="custom-alert">
-              <div class="alert-content">
-                <span class="icon">✅</span>
-                <div class="text">
-                  <h4>Registration Successful!</h4>
-                  <p>Welcome to our Grocery Store.</p>
-                </div>
-              </div>
-            </div>
-           
-           <label for="chk"> Sign up</label>
-           <input type="text" name="username"   placeholder="Username">
-           <input type="email" name="email"  placeholder="Email">
-           <!-- <input type="tel" required placeholder="Phone No."> -->
-           <input type="password" name="password"  placeholder="Password">
-           
-           <!-- <select name="user_type" class="user_type">
-             <option value="user">user</option>
-             <option value="admin">admin</option>
-            </select> -->
-            <button type="submit" name="register" class="btn-register">Registert</button>
-           
-            
-          </form>
-          
-        </div>
-        
-        <div class="login">
-          
-          
-          <form action="process_register.php" method="POST" id="login">
-            <label for="chk">Login</label>
-            <!-- <input type="email" required placeholder="Email"> -->
-            <input type="text"  name="username"  id="username"  placeholder="Enter you username" required>
-            
-            <input type="password" name="password" id="password" required placeholder="Password" require>
-            <!-- <button>Login</button> -->
-            <button type="submit" name="login" class="login-btn">Login</button>
-            
-            <p>IF Your Are New,Please Sign up First </p>
-            
-            
-          </form>
-          
-        </div>
-        
-      <!-- </form> -->
-      
-    </main>
-      <script>
-        
-        function registerUser(event) {
-          event.preventDefault();
-          
-          
-          // 1. Get the username from the form
-          const username = document.getElementById('username').value;
-          // const userType = document.getElementById('user_type').value;
-          
-          // 2. Save user data (as we discussed before)
-          const userData = {
-            username: username,
-            // role: userType,
-            isLoggedIn: true
-          };
-          localStorage.setItem('currentUser', JSON.stringify(userData));
-          
-          // 3. SHOW THE ALERT
-          alert("Registration Successful! \nWelcome, " + username);
-          
-          // 4. Redirect to the Shop
-          window.location.href = '#login';
-        }
-        
-        let alertTimeout; // Variable to store the timer
-        function triggerSuccessAlert() {
-          const alertBox = document.getElementById('successAlert');
-          
-          if (alertBox ) {
-            alertBox.classList.add('show');
-            
-            // Start the 10-second timer
-            alertTimeout = setTimeout(() => {
-              closeAlert(); // Automatically close after 10s // Then redirect
-            }, 5000); 
-          }
-        }
-        
-        // Function to close the alert manually
-        function closeAlert() {
-          const alertBox = document.getElementById('successAlert');
-          if (alertBox) {
-            alertBox.classList.remove('show');
-            
-            // Stop the timer so it doesn't try to close it again or redirect early
-            clearTimeout(alertTimeout);
-            
-            window.history.replaceState({}, document.title, window.location.pathname);
+</head>
+<body>
 
-          }
-        } 
-        
-        triggerSuccessAlert();
-      </script>
-  </body>
+<div class="bg"></div>
+
+<div class="card">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <div class="logo-icon">🛒</div>
+        <span class="logo-text">Fresh Grocery</span>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab-btn <?php echo $active_tab==='login'?'active':''; ?>"    id="loginTab"    onclick="switchTab('login')">Login</button>
+        <button class="tab-btn <?php echo $active_tab==='register'?'active':''; ?>" id="registerTab" onclick="switchTab('register')">Sign Up</button>
+    </div>
+
+    <!-- ALERT -->
+    <?php if ($msg): ?>
+    <div class="alert <?php echo $msg_type; ?>">
+        <?php echo $msg_type==='success'?'✅':'⚠️'; ?> <?php echo $msg; ?>
+    </div>
+    <?php endif; ?>
+
+    <!-- LOGIN PANEL -->
+    <div class="panel <?php echo $active_tab==='login'?'active':''; ?>" id="loginPanel">
+        <h2 class="panel-title">Welcome back 👋</h2>
+        <p class="panel-sub">Login to continue shopping</p>
+        <form action="process_register.php" method="POST">
+            <div class="field">
+                <label>Username</label>
+                <div class="input-wrap">
+                    <span>👤</span>
+                    <input type="text" name="username" placeholder="Enter your username" required>
+                </div>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <div class="input-wrap">
+                    <span>🔒</span>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+            </div>
+            <button type="submit" name="login" class="submit-btn">Login →</button>
+        </form>
+        <div class="switch-link">New here? <a onclick="switchTab('register')">Create an account</a></div>
+    </div>
+
+    <!-- REGISTER PANEL -->
+    <div class="panel <?php echo $active_tab==='register'?'active':''; ?>" id="registerPanel">
+        <h2 class="panel-title">Create account 🌿</h2>
+        <p class="panel-sub">Join and start shopping fresh</p>
+        <form action="process_register.php" method="POST">
+            <div class="field">
+                <label>Username</label>
+                <div class="input-wrap">
+                    <span>👤</span>
+                    <input type="text" name="username" placeholder="Choose a username" required>
+                </div>
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <div class="input-wrap">
+                    <span>📧</span>
+                    <input type="email" name="email" placeholder="you@example.com">
+                </div>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <div class="input-wrap">
+                    <span>🔒</span>
+                    <input type="password" name="password" placeholder="Create a password" required>
+                </div>
+            </div>
+            <button type="submit" name="register" class="submit-btn">Create Account →</button>
+        </form>
+        <div class="switch-link">Already have an account? <a onclick="switchTab('login')">Login here</a></div>
+    </div>
+
+    <div class="card-footer">© 2026 Fresh Grocery. All rights reserved.</div>
+</div>
+
+<script>
+function switchTab(tab) {
+    ['loginPanel','registerPanel'].forEach(function(id){
+        document.getElementById(id).classList.remove('active');
+    });
+    ['loginTab','registerTab'].forEach(function(id){
+        document.getElementById(id).classList.remove('active');
+    });
+    document.getElementById(tab+'Panel').classList.add('active');
+    document.getElementById(tab+'Tab').classList.add('active');
+}
+</script>
+</body>
 </html>

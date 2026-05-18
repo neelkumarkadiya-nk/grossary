@@ -2,6 +2,13 @@
 session_start(); 
 include "process_register.php";
 
+if (!isset($conn)) {
+    $conn = mysqli_connect('localhost', 'root', '', 'grossary');
+    if (!$conn) {
+        die('Database connection failed: ' . mysqli_connect_error());
+    }
+}
+
 if (isset($_POST['login'])) {
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -175,8 +182,8 @@ body {
 </head>
 <body>
     
-    <?php if (isset($error)) { ?>
-        <p class="error"><?php echo $error; ?></p>
+    <?php if (!empty($error)) { ?>
+        <p class="error"><?php echo htmlspecialchars(implode(' ', $error)); ?></p>
         <?php } ?>
         
         <form method="post">
